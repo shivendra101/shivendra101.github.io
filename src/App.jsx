@@ -1,9 +1,8 @@
-import './App.css'
-import Desktop from './components/Desktop/Desktop'
+import Terminal from './components/Terminal/Terminal'
 
 function App() {
   return (
-    <Desktop />
+    <Terminal />
   )
 }
 

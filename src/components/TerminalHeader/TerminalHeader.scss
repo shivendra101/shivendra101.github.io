@@ -1,0 +1,56 @@
+.terminal-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: $secondary-color;
+  font-family: 'Lufga';
+  font-size: 50px;
+
+  .heading { 
+    display: flex;
+    align-items: center;
+    .icons {
+      height: 50px;
+      animation-duration: 1s; /* Adjust for "slowly" */
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    .brain-icon {
+      animation-name: brainAnimation;
+    }
+    .bulb-icon {
+      animation-name: bulbAnimation;
+      margin: 0 5px;
+    }
+    .code-lottie {
+      height: 60px;
+      margin: 0 5px;
+    }
+  }
+
+  .typing-effect {
+    font-size: 30px;
+    font-family: monospace;
+    margin: 25px 0;
+  }
+}
+
+@keyframes brainAnimation {
+  0%, 100% {
+    transform: translateY(0); /* Starting and ending position */
+  }
+  50% {
+    transform: translateY(-10px); /* Peak of the bounce (adjust px as needed) */
+  }
+}
+
+
+@keyframes bulbAnimation {
+  0%, 100% {
+    transform: scale(1) /* Starting and ending position */
+  }
+  50% {
+    transform: scale(1.2) /* Peak of the bounce (adjust px as needed) */
+  }
+}

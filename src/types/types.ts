@@ -1,0 +1,1 @@
+export { WindowWrapperProps, WindowBodyProps, WindowHeaderProps } from "./propTypes";
