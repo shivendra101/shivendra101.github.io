@@ -1,10 +1,9 @@
 import React from "react";
 import './Terminal.scss';
-import TerminalHeader from "../TerminalHeader/TerminalHeader";
-
+import TerminalIntro from "../TerminalIntro/TerminalIntro";
 const Terminal: React.FC = () => {
 	return <div className="terminal-container">
-        <TerminalHeader />
+        <TerminalIntro />
     </div>
 }
 

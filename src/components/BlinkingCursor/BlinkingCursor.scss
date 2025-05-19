@@ -3,7 +3,7 @@
     margin-left: 5px;
     width: 15px;
     height: 75%;
-    background-color: $secondary-color;
+    background-color: $secondary-intro-color;
     animation: blink 1.1s step-end infinite;
     &.is-typing {
         animation: none;

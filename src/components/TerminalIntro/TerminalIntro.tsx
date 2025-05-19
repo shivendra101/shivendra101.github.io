@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useCallback } from "react";
-import './TerminalHeader.scss';
+import './TerminalIntro.scss';
 import brainIcon from "../../assets/icons/brain.svg";
 import bulbIcon from "../../assets/icons/bulb.svg";
 import Lottie from "lottie-react";
 import codeLottie from "../../assets/lottie/code-lottie.json";
 import BlinkingCursor from "../BlinkingCursor/BlinkingCursor";
+import TerminalEntryButton from "../TerminalEntryButton/TerminalEntryButton";
 
 
 const TerminalHeader: React.FC = () => {
@@ -47,6 +48,8 @@ const TerminalHeader: React.FC = () => {
         <span className="heading"> Where Logic <img src={brainIcon} className="icons brain-icon" alt="" /> meets innovation  <img src={bulbIcon} className="icons bulb-icon" alt="" /> && </span>
         <span className="heading"> solving problems through code <Lottie className="code-lottie" animationData={codeLottie} loop={true} autoplay={true} />  </span>
         <span className="heading typing-effect"> {subHeading} <BlinkingCursor isTyping={isTyping}  /> </span>
+
+        <TerminalEntryButton />
     </div>
 };
 
