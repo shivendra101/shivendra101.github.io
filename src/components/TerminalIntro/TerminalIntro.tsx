@@ -5,10 +5,10 @@ import bulbIcon from "../../assets/icons/bulb.svg";
 import Lottie from "lottie-react";
 import codeLottie from "../../assets/lottie/code-lottie.json";
 import BlinkingCursor from "../BlinkingCursor/BlinkingCursor";
-import TerminalEntryButton from "../TerminalEntryButton/TerminalEntryButton";
+import TerminalButton from "../TerminalButton/TerminalButton";
+import { ButtonSize, TerminalIntroProps } from "../../types/propTypes";
 
-
-const TerminalHeader: React.FC = () => {
+const TerminalIntro: React.FC<TerminalIntroProps> = ({toggleTerminal}: TerminalIntroProps) => {
 
     const line = `console.log("Welcome to my digital forge !!");`;
     const [subHeading, setSubHeading] = useState<string>('');
@@ -44,13 +44,15 @@ const TerminalHeader: React.FC = () => {
     }, [delay, line]);
 
     
-    return <div className="terminal-header">
+    return <div className="terminal-intro">
         <span className="heading"> Where Logic <img src={brainIcon} className="icons brain-icon" alt="" /> meets innovation  <img src={bulbIcon} className="icons bulb-icon" alt="" /> && </span>
         <span className="heading"> solving problems through code <Lottie className="code-lottie" animationData={codeLottie} loop={true} autoplay={true} />  </span>
         <span className="heading typing-effect"> {subHeading} <BlinkingCursor isTyping={isTyping}  /> </span>
 
-        <TerminalEntryButton />
+        <span className="enter-btn">
+            <TerminalButton size={ButtonSize.LARGE} toggleTerminal={toggleTerminal} text={"Enter vault"} />
+        </span>
     </div>
 };
 
-export default React.memo(TerminalHeader);
+export default React.memo(TerminalIntro);

@@ -1,10 +1,12 @@
-.terminal-header {
+@import '../../scss/variables.scss';
+
+.terminal-intro {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   color: $secondary-intro-color;
-  font-family: 'Lufga';
+  font-family: $primary-font;
   font-size: 50px;
 
   .heading { 
@@ -28,29 +30,47 @@
       margin: 0 5px;
     }
   }
-
+  
   .typing-effect {
     font-size: 30px;
-    font-family: monospace;
+    font-family: $terminal-font;
     margin: 25px 0;
+    &::before {
+      content: "> ";
+      color: $secondary-intro-color;
+    }
   }
+  
+  .enter-btn {
+    margin-top: 3rem;
+  }
+
+  .heading:nth-child(1) { animation: startup 0.5s ease-out 0.2s both; }
+  .heading:nth-child(2) { animation: startup 0.5s ease-out 0.5s both; }
+  .heading:nth-child(3) { animation: startup 0.5s ease-out 0.8s both; }
+  .enter-btn { animation: startup 0.5s ease-out 1.2s both; }
 }
 
 @keyframes brainAnimation {
   0%, 100% {
-    transform: translateY(0); /* Starting and ending position */
+    transform: translateY(0); 
   }
   50% {
-    transform: translateY(-10px); /* Peak of the bounce (adjust px as needed) */
+    transform: translateY(-10px); 
   }
 }
-
 
 @keyframes bulbAnimation {
   0%, 100% {
-    transform: scale(1) /* Starting and ending position */
+    transform: scale(1) 
   }
   50% {
-    transform: scale(1.2) /* Peak of the bounce (adjust px as needed) */
+    transform: scale(1.2) 
   }
 }
+
+@keyframes startup {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+

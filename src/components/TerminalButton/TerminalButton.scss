@@ -1,6 +1,5 @@
 .terminal-entry-button {
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
@@ -12,12 +11,24 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-top: 3rem;
   button {
     background: transparent;
     border: none;
     color: #fff;
-    font-size: 24px;
+  }
+
+  &.medium {
+    button {
+      font-size: 16px;
+    }
+    font-size: 10px;
+  }
+
+  &.large {
+    button {
+      font-size: 24px;
+    }
+    font-size: 16px;
   }
 }
 

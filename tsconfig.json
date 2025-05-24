@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES6", 
+        "module": "CommonJS", 
+        "strict": true, 
+        "esModuleInterop": true, 
+        "skipLibCheck": true, 
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react"
+    },
+    "include": [
+        "src/**/*",
+        "src/types/svg.d.ts"
+    ], // Specify files or directories to include
+    "exclude": ["node_modules", "dist"] // Specify files or directories to exclude
+}

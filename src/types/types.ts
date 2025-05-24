@@ -1,1 +1,1 @@
-export { WindowWrapperProps, WindowBodyProps, WindowHeaderProps } from "./propTypes";
+export { TerminalIntroProps, TerminalBodyProps, TerminalButtonProps } from "./propTypes";

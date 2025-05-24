@@ -1,0 +1,39 @@
+@import '../../scss/variables.scss';
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $primary-color;
+  width: 100%;
+  
+  .logo-container {
+    height: 100px;
+    display: flex;
+    img {
+      filter: drop-shadow(0 0 2px $secondary-color);
+    }
+  }
+  
+  .header-title {
+    margin: 0;
+    color: $secondary-color;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: $terminal-font;
+    text-shadow: 0 0 4px $secondary-color;
+    
+    &::after {
+      content: "_";
+      animation: blink 1s step-end infinite;
+      margin-left: 5px;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

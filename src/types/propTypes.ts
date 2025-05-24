@@ -1,12 +1,24 @@
-export type WindowWrapperProps = {
-    view: string; // You can restrict this to specific strings like "terminal" | "editor" if needed
+export enum ButtonSize {
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    LARGE = 'large',
+}
+
+export type TerminalIntroProps = {
+    toggleTerminal: () => void;
 };
-  
-export type WindowHeaderProps = {
-    handleRef: React.RefObject<HTMLDivElement>;
-    toggleFullScreen: () => void;
+
+export type TerminalButtonProps = {
+    toggleTerminal: () => void;
+    text: string;
+    size: ButtonSize
 };
-  
-export type WindowBodyProps = {
-view: string;
+
+export type TerminalBodyProps = {
+    showIntro: boolean;
+    toggleTerminal: () => void;
+};
+
+export type TerminalContentProps = {
+    toggleTerminal: () => void;
 };
