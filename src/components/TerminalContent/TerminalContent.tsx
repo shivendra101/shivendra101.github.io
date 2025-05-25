@@ -11,7 +11,7 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ toggleTerminal }) => 
     return (
         <div className="terminal-content">
             <div className="terminal-content-top">
-                <TerminalButton size={ButtonSize.MEDIUM} toggleTerminal={toggleTerminal} text={"Go Back"} />
+                <span className="terminal-content-text back-btn" onClick={toggleTerminal}> {'<-'} </span>
                 <span className="terminal-content-text">Welcome to the terminal body!</span>
                 <span></span>
             </div>

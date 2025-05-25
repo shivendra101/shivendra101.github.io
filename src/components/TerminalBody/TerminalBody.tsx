@@ -9,7 +9,7 @@ const TerminalBody: React.FC<TerminalBodyProps> = ({ toggleTerminal, showIntro }
     return (
         <div className="terminal-body">
             {showIntro ? (
-                <TerminalIntro toggleTerminal={toggleTerminal} />
+                <TerminalIntro toggleTerminal={toggleTerminal} /> 
             ) : (
                 <TerminalContent toggleTerminal={toggleTerminal} />
             )}

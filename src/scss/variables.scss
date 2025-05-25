@@ -3,27 +3,9 @@ $primary-color: #1e1e1e;
 $secondary-intro-color: #f0f0f0;
 $secondary-color: #b689ea;
 
-// Terminal-specific colors
-$terminal-background: #000000;
-$terminal-text: #33ff33; // Classic green terminal text
-$terminal-header: #006600;
-$terminal-border: #33ff33;
-$terminal-cursor: #33ff33;
-$terminal-highlight: #00aa00;
-
-// Terminal effects
-$terminal-glow: 0 0 10px rgba(51, 255, 51, 0.5);
-$terminal-scan-line: rgba(0, 0, 0, 0.3);
-
 // Font settings
 $primary-font: 'Lufga', sans-serif;
 $terminal-font: 'Courier New', monospace; // Classic terminal font
-
-// UI elements
-$button-background: #000000;
-$button-text: #33ff33;
-$button-border: #33ff33;
-$button-hover: #004400;
 
 // Spacing
 $terminal-padding: 1rem;

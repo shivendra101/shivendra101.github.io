@@ -4,25 +4,12 @@
     display: flex;
     flex-direction: column;
     width: 90%;
-    max-width: 900px;
-    height: 80%;
+    height: 95%;
     position: relative;
     font-family: $terminal-font;
-    
-    // Terminal window frame
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: $border-width solid $secondary-color;
-        border-radius: $border-radius;
-        box-shadow: 0 0 20px rgba($secondary-color, 0.3);
-        pointer-events: none;
-        z-index: 0;
-    }
+    box-shadow: 0 0 20px rgba($secondary-color, 0.3);
+    border: $border-width solid $secondary-color;
+    border-radius: $border-radius;
     
     .terminal-content-top {
         display: flex;
@@ -30,20 +17,9 @@
         align-items: center;
         padding: $terminal-padding;
         border-bottom: 1px solid $secondary-color;
+        background-color: rgba($secondary-color, 0.1);
         position: relative;
         z-index: 1;
-        
-        // Terminal title bar style
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba($secondary-color, 0.1);
-            z-index: -1;
-        }
     }
     
     .terminal-content-main {
@@ -61,7 +37,7 @@
             
             // Terminal prompt
             &::before {
-                content: "$ ";
+                content: "user@root:~/vault $ ";
                 color: $secondary-color;
                 font-weight: bold;
             }
@@ -69,10 +45,19 @@
     }
     
     .terminal-content-text {
-        color: $secondary-color;
-        font-size: 1rem;
-        text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
+        color: #d0b5ee;
+        font-size: 1.2rem;
         letter-spacing: 1px;
+    }
+
+    .back-btn {
+        font-weight: bold;
+        color: $secondary-intro-color;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.4;
+        }
     }
 }
 
