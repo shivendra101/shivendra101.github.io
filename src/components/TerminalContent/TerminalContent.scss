@@ -33,13 +33,53 @@
         .terminal-content-text {
             display: block;
             margin-bottom: 10px;
-            animation: typewriter 2s steps(40, end);
             
-            // Terminal prompt
-            &::before {
+            &.command-line::before {
                 content: "user@root:~/vault $ ";
                 color: $secondary-color;
                 font-weight: bold;
+            }
+            
+            &.output-line {
+                padding-left: 10px;
+                white-space: pre-wrap;
+            }
+        }
+        
+        // Terminal input styles
+        .terminal-input-form {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            
+            .terminal-prompt-line {
+                display: flex;
+                align-items: center;
+                
+                .terminal-prompt {
+                    color: $secondary-color;
+                    font-weight: bold;
+                    &::before {
+                        content: "user@root:~/vault $ ";
+                    }
+                }
+                
+                .terminal-input {
+                    flex: 1;
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: #d0b5ee;
+                    font-family: $terminal-font;
+                    font-size: 1.2rem;
+                    letter-spacing: 1px;
+                    caret-color: $secondary-color;
+                    padding: 0 5px;
+                    
+                    &:focus {
+                        outline: none;
+                    }
+                }
             }
         }
     }
@@ -64,4 +104,10 @@
 @keyframes typewriter {
     from { width: 0; }
     to { width: 100%; }
+}
+
+// Cursor blink animation
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
