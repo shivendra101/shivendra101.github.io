@@ -8,7 +8,7 @@ interface CommandEntry {
 
 export const useTerminalContent = () => {
     const [commandHistory, setCommandHistory] = useState<CommandEntry[]>([
-        { command: "", output: "This is where the magic happens." }
+        { command: "", output: "Welcome! Type 'help' for available commands." }
     ]);
     const [currentCommand, setCurrentCommand] = useState<string>("");
     const inputRef = useRef<HTMLInputElement>(null);
