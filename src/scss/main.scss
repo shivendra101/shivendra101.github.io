@@ -3,14 +3,27 @@
 @import './variables.scss';
 
 // Theme classes to be applied to the root element
-.theme-primary {
-  --theme-color: #{$theme-color-primary};
-  --theme-color-rgb: 182, 137, 234; /* RGB values for $theme-color-primary */
-  --theme-text: #{$theme-text-primary};
+// To add a new theme:
+// 1. Add the theme name to THEMES array in ThemeContext.tsx
+// 2. Add theme color variables in variables.scss
+// 3. Add a new theme class here following the pattern below
+
+.theme-theme1 {
+  --theme-color: #{$theme-color-1};
+  --theme-color-rgb: 182, 137, 234; /* RGB values for $theme-color-1 */
+  --theme-text: #{$theme-text-1};
 }
 
-.theme-secondary {
+.theme-theme2 {
   --theme-color: #{$theme-color-2};
   --theme-color-rgb: 51, 255, 51; /* RGB values for $theme-color-2 */
   --theme-text: #{$theme-text-2};
 }
+
+.theme-theme3 {
+  --theme-color: #{$theme-color-3};
+  --theme-color-rgb: 39, 76, 125; /* RGB values for $theme-color-3 #274c7d */
+  --theme-text: #{$theme-text-3};
+}
+
+/* Add new theme classes here following the pattern above */

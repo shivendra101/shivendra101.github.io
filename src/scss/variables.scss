@@ -2,13 +2,23 @@
 $background-color: #1e1e1e;
 $intro-color: #f0f0f0;
 
-//Primary theme colors
-$theme-color-primary: #b689ea;
-$theme-text-primary: #d0b5ee;
+// Theme color variables
+// To add a new theme:
+// 1. Add new theme color variables following the pattern below
+// 2. Add the theme name to THEMES array in ThemeContext.tsx
+// 3. Add a new theme class in main.scss
 
-//Secondary theme colors
+// Theme1 colors (previously primary)
+$theme-color-1: #b689ea;
+$theme-text-1: #d0b5ee;
+
+// Theme2 colors (previously secondary)
 $theme-color-2: #33ff33;
 $theme-text-2: #33ff33;
+
+// Theme3 colors (previously tertiary)
+$theme-color-3: #40a5ff;
+$theme-text-3: #40a5ff;
 
 // Font settings
 $primary-font: 'Lufga', sans-serif;
