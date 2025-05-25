@@ -17,9 +17,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        border: $border-width solid $terminal-border;
+        border: $border-width solid $secondary-color;
         border-radius: $border-radius;
-        box-shadow: 0 0 20px rgba(51, 255, 51, 0.3);
+        box-shadow: 0 0 20px rgba($secondary-color, 0.3);
         pointer-events: none;
         z-index: 0;
     }
@@ -29,7 +29,7 @@
         justify-content: space-between;
         align-items: center;
         padding: $terminal-padding;
-        border-bottom: 1px solid $terminal-border;
+        border-bottom: 1px solid $secondary-color;
         position: relative;
         z-index: 1;
         
@@ -41,7 +41,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 66, 0, 0.4);
+            background-color: rgba($secondary-color, 0.1);
             z-index: -1;
         }
     }
@@ -62,14 +62,14 @@
             // Terminal prompt
             &::before {
                 content: "$ ";
-                color: $terminal-text;
+                color: $secondary-color;
                 font-weight: bold;
             }
         }
     }
     
     .terminal-content-text {
-        color: $terminal-text;
+        color: $secondary-color;
         font-size: 1rem;
         text-shadow: 0 0 5px rgba(51, 255, 51, 0.5);
         letter-spacing: 1px;
