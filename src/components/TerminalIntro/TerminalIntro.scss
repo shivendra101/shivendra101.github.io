@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: $secondary-intro-color;
+  color: $intro-color;
   font-family: $primary-font;
   font-size: 50px;
 
@@ -37,7 +37,7 @@
     margin: 25px 0;
     &::before {
       content: "> ";
-      color: $secondary-intro-color;
+      color: $intro-color;
     }
   }
   

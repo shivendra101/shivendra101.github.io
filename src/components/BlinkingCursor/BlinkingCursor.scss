@@ -1,9 +1,11 @@
+@import '../../scss/variables.scss';
+
 .blinking-cursor {
     display: inline-block;
     margin-left: 5px;
     width: 15px;
     height: 75%;
-    background-color: $secondary-intro-color;
+    background-color: var(--theme-color, $intro-color);
     animation: blink 1.1s step-end infinite;
     &.is-typing {
         animation: none;

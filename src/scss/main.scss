@@ -1,3 +1,16 @@
 @import './base.scss';
 @import './fonts.scss';
 @import './variables.scss';
+
+// Theme classes to be applied to the root element
+.theme-primary {
+  --theme-color: #{$theme-color-primary};
+  --theme-color-rgb: 182, 137, 234; /* RGB values for $theme-color-primary */
+  --theme-text: #{$theme-text-primary};
+}
+
+.theme-secondary {
+  --theme-color: #{$theme-color-2};
+  --theme-color-rgb: 51, 255, 51; /* RGB values for $theme-color-2 */
+  --theme-text: #{$theme-text-2};
+}

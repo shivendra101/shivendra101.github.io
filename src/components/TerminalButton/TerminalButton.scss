@@ -1,9 +1,11 @@
+@import '../../scss/variables.scss';
+
 .terminal-entry-button {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
-  color: $secondary-intro-color;
+  color: var(--theme-color, $intro-color); // Use theme color with fallback
   border: 3px solid;
   padding: 1em 2em;
   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;

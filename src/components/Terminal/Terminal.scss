@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .terminal-container {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,13 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  color: $secondary-color;
-  background-color: $primary-color;
+  color: $background-color;
+  background-color: $background-color;
   cursor: url('/src/assets/icons/pointer.svg'), auto;
+
+  // Apply theme-specific styles
+  &.theme-primary, &.theme-secondary {
+    // These classes will inherit the CSS variables defined in main.scss
+    // Any theme-specific component can access the --theme-color and --theme-text variables
+  }
 }

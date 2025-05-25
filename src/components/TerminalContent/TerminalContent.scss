@@ -7,8 +7,8 @@
     height: 95%;
     position: relative;
     font-family: $terminal-font;
-    box-shadow: 0 0 20px rgba($secondary-color, 0.3);
-    border: $border-width solid $secondary-color;
+    box-shadow: 0 0 20px rgba(var(--theme-color-rgb), 0.3);
+    border: $border-width solid var(--theme-color);
     border-radius: $border-radius;
     
     .terminal-content-top {
@@ -16,8 +16,8 @@
         justify-content: space-between;
         align-items: center;
         padding: $terminal-padding;
-        border-bottom: 1px solid $secondary-color;
-        background-color: rgba($secondary-color, 0.1);
+        border-bottom: 1px solid var(--theme-color);
+        background-color: rgba(var(--theme-color-rgb), 0.1);
         position: relative;
         z-index: 1;
     }
@@ -36,7 +36,7 @@
             
             &.command-line::before {
                 content: "user@root:~/vault $ ";
-                color: $secondary-color;
+                color: var(--theme-color);
                 font-weight: bold;
             }
             
@@ -51,13 +51,14 @@
             display: block;
             width: 100%;
             margin-bottom: 10px;
-            
+            font-size: 1.2rem;
+            letter-spacing: 1px;
             .terminal-prompt-line {
                 display: flex;
                 align-items: center;
                 
                 .terminal-prompt {
-                    color: $secondary-color;
+                    color: var(--theme-color);
                     font-weight: bold;
                     &::before {
                         content: "user@root:~/vault $ ";
@@ -69,11 +70,11 @@
                     background: transparent;
                     border: none;
                     outline: none;
-                    color: #d0b5ee;
+                    color: var(--theme-text);
                     font-family: $terminal-font;
                     font-size: 1.2rem;
                     letter-spacing: 1px;
-                    caret-color: $secondary-color;
+                    caret-color: var(--theme-color);
                     padding: 0 5px;
                     
                     &:focus {
@@ -85,14 +86,14 @@
     }
     
     .terminal-content-text {
-        color: #d0b5ee;
+        color: var(--theme-text);
         font-size: 1.2rem;
         letter-spacing: 1px;
     }
 
     .back-btn {
         font-weight: bold;
-        color: $secondary-intro-color;
+        color: $intro-color;
         cursor: pointer;
 
         &:hover {
