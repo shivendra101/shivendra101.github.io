@@ -1,0 +1,32 @@
+.command-help {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .command-help-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .command-help-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .command-help-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 10px;
+  }
+
+  .command-name {
+    color: #5af78e; /* Bright green color for commands */
+    font-weight: bold;
+  }
+
+  .command-description {
+    color: #f1f1f0; /* Light color for descriptions */
+  }
+}
