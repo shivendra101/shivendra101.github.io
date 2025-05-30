@@ -1,5 +1,6 @@
 import React from "react";
 import { useTerminalContent } from "../../hooks/useTerminal";
+import AboutPopup from "../AboutPopup/AboutPopup";
 import './TerminalContent.scss';
 
 interface TerminalContentProps {
@@ -14,7 +15,9 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ toggleTerminal }) => 
         handleCommandSubmit,
         handleTerminalClick,
         inputRef,
-        terminalMainRef
+        terminalMainRef,
+        showAboutPopup,
+        closeAboutPopup
     } = useTerminalContent();
 
     return (
@@ -60,6 +63,9 @@ const TerminalContent: React.FC<TerminalContentProps> = ({ toggleTerminal }) => 
                     </div>
                 </form>
             </div>
+            
+            {/* About popup component */}
+            { showAboutPopup && <AboutPopup onClose={closeAboutPopup} /> }
         </div>
     );
 };

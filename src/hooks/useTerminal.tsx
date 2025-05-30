@@ -11,6 +11,7 @@ export const useTerminalContent = () => {
         { command: "", output: "Welcome! Type 'help' for available commands." }
     ]);
     const [currentCommand, setCurrentCommand] = useState<string>("");
+    const [showAboutPopup, setShowAboutPopup] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const terminalMainRef = useRef<HTMLDivElement>(null);
 
@@ -53,7 +54,9 @@ export const useTerminalContent = () => {
         if (cmd === "help") {
             return <CommandHelp />;
         } else if (cmd === "about") {
-            return "Hi! I'm a developer passionate about creating amazing web experiences.";
+            // Show the About popup
+            setTimeout(() => setShowAboutPopup(true), 1000);
+            return "Loading classified personnel file...";
         } else if (cmd === "skills") {
             return "React, TypeScript, Node.js, CSS/SCSS, and more!";
         } else if (cmd === "projects") {
@@ -78,6 +81,10 @@ export const useTerminalContent = () => {
         }
     };
 
+    const closeAboutPopup = () => {
+        setShowAboutPopup(false);
+    };
+
     return {
         commandHistory,
         currentCommand,
@@ -85,6 +92,8 @@ export const useTerminalContent = () => {
         handleCommandSubmit,
         handleTerminalClick,
         inputRef,
-        terminalMainRef
+        terminalMainRef,
+        showAboutPopup,
+        closeAboutPopup
     };
 };
