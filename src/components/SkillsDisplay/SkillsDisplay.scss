@@ -1,0 +1,314 @@
+@import '../../scss/variables.scss';
+
+.skills-display {
+  width: 100%;
+  font-family: $terminal-font;
+  color: var(--theme-text);
+  padding: 20px;
+  background-color: rgba($background-color, 0.7);
+  border: 1px solid var(--theme-color);
+  box-shadow: 0 0 15px rgba(var(--theme-color-rgb), 0.3);
+  border-radius: 5px;
+  animation: scanLines 8s linear infinite;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      rgba(var(--theme-color-rgb), 0.03) 50%, 
+      rgba(var(--theme-color-rgb), 0.02) 50%
+    );
+    background-size: 100% 4px;
+    opacity: 0.15;
+    z-index: 1;
+  }
+  
+  // Digital circuit pattern
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(rgba(var(--theme-color-rgb), 0.1) 2px, transparent 2px),
+      linear-gradient(to right, rgba(var(--theme-color-rgb), 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--theme-color-rgb), 0.05) 1px, transparent 1px);
+    background-size: 20px 20px, 10px 10px, 10px 10px;
+    background-position: 0 0, 0 0, 0 0;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.skills-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+  
+  h2 {
+    margin: 0 15px;
+    color: var(--theme-color);
+    text-shadow: 0 0 8px var(--theme-color);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  
+  .header-line {
+    height: 1px;
+    background-color: var(--theme-color);
+    flex: 1;
+    position: relative;
+    
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--theme-color);
+      top: -2.5px;
+    }
+    
+    &::before {
+      left: 0;
+    }
+    
+    &::after {
+      right: 0;
+    }
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.skill-category {
+  background-color: rgba($background-color, 0.7);
+  border: 1px solid rgba(var(--theme-color-rgb), 0.3);
+  border-radius: 3px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(var(--theme-color-rgb), 0.1);
+  
+  &:hover {
+    box-shadow: 0 0 15px rgba(var(--theme-color-rgb), 0.3);
+    border-color: rgba(var(--theme-color-rgb), 0.5);
+  }
+}
+
+.category-header {
+  margin-bottom: 15px;
+  
+  h3 {
+    margin: 0 0 8px 0;
+    color: var(--theme-color);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    
+    &::before {
+      content: '>';
+      margin-right: 8px;
+      color: var(--theme-color);
+      opacity: 0.7;
+    }
+  }
+  
+  .category-line {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      var(--theme-color),
+      rgba(var(--theme-color-rgb), 0.1)
+    );
+  }
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  
+  .skill-name {
+    width: 120px;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 15px;
+    white-space: nowrap;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background-color: var(--theme-color);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      opacity: 0.7;
+    }
+  }
+  
+  .skill-bar-container {
+    flex: 1;
+    height: 16px;
+    background-color: rgba($background-color, 0.5);
+    border: 1px solid rgba(var(--theme-color-rgb), 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    
+    // Grid lines
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+        to right,
+        transparent,
+        transparent 9%,
+        rgba(var(--theme-color-rgb), 0.1) 10%,
+        transparent 10%,
+        transparent 19%,
+        rgba(var(--theme-color-rgb), 0.1) 20%,
+        transparent 20%,
+        transparent 29%,
+        rgba(var(--theme-color-rgb), 0.1) 30%,
+        transparent 30%,
+        transparent 39%,
+        rgba(var(--theme-color-rgb), 0.1) 40%,
+        transparent 40%,
+        transparent 49%,
+        rgba(var(--theme-color-rgb), 0.1) 50%,
+        transparent 50%,
+        transparent 59%,
+        rgba(var(--theme-color-rgb), 0.1) 60%,
+        transparent 60%,
+        transparent 69%,
+        rgba(var(--theme-color-rgb), 0.1) 70%,
+        transparent 70%,
+        transparent 79%,
+        rgba(var(--theme-color-rgb), 0.1) 80%,
+        transparent 80%,
+        transparent 89%,
+        rgba(var(--theme-color-rgb), 0.1) 90%,
+        transparent 90%
+      );
+      pointer-events: none;
+    }
+  }
+  
+  .skill-bar {
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(var(--theme-color-rgb), 0.8),
+      var(--theme-color)
+    );
+    box-shadow: 0 0 8px rgba(var(--theme-color-rgb), 0.5);
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: skillPulse 3s infinite alternate;
+    
+    .skill-level-marker {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      color: $background-color;
+      font-weight: bold;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.skills-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  position: relative;
+  z-index: 2;
+  
+  .skills-note {
+    font-size: 0.7rem;
+    margin: 0 15px;
+    color: rgba(var(--theme-color-rgb), 0.7);
+    letter-spacing: 1px;
+  }
+  
+  .footer-line {
+    height: 1px;
+    background-color: rgba(var(--theme-color-rgb), 0.3);
+    flex: 1;
+  }
+}
+
+// Animations
+@keyframes skillPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(var(--theme-color-rgb), 0.5);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(var(--theme-color-rgb), 0.8);
+  }
+}
+
+@keyframes scanLines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-item .skill-name {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .skills-grid {
+    gap: 20px;
+  }
+}

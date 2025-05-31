@@ -1,6 +1,6 @@
 @import '../../scss/variables.scss';
 
-.about-popup-overlay {
+.skills-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,22 +12,36 @@
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(4px);
-
+  
+  &.popup-enter {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  &.popup-exit {
+    animation: fadeOut 0.3s ease-in forwards;
+  }
 }
 
 // Animation wrapper (doesn't get transformed by draggable)
 .animation-wrapper {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-self: center;
-    align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  .popup-enter & {
+    animation: wrapperEnter 0.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+  
+  .popup-exit & {
+    animation: wrapperExit 0.3s ease-in forwards;
+  }
 }
 
-.about-popup-content {
+.skills-popup-content {
   position: relative;
-  width: 80%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 1000px;
   max-height: 85vh;
   background-color: rgba($background-color, 0.95);
   border: 2px solid var(--theme-color);
@@ -129,16 +143,33 @@
       top: -2.5px;
     }
   }
+  
+  .drag-handle-indicator {
+    position: absolute;
+    top: 3px;
+    right: 50px;
+    font-family: $terminal-font;
+    font-size: 0.6rem;
+    color: rgba(var(--theme-color-rgb), 0.7);
+    letter-spacing: 1px;
+    background-color: rgba($background-color, 0.5);
+    padding: 2px 5px;
+    border-radius: 2px;
+    border: 1px solid rgba(var(--theme-color-rgb), 0.3);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 }
 
+.skills-popup-content:hover .popup-header .drag-handle-indicator {
+  opacity: 1;
+}
 
 .popup-body {
   padding: 20px;
   max-height: calc(85vh - 140px);
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
   
   // Sci-fi terminal scrollbar
   &::-webkit-scrollbar {
@@ -158,6 +189,14 @@
   
   &::-webkit-scrollbar-thumb:hover {
     background: var(--theme-text);
+  }
+
+  // Remove border from the skills display since it's now inside a popup
+  .skills-display {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
   }
 }
 
@@ -186,177 +225,6 @@
   }
 }
 
-.identity-section {
-  display: flex;
-  gap: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px dashed rgba(var(--theme-color-rgb), 0.4);
-}
-
-.profile-picture-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 200px;
-}
-
-.profile-picture {
-  width: 180px;
-  height: 180px;
-  border: 2px solid var(--theme-color);
-  background-color: rgba(var(--theme-color-rgb), 0.1);
-  position: relative;
-  overflow: hidden;
-  
-  // Placeholder for an actual image
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(var(--theme-color-rgb), 0.3);
-    box-shadow: 0 0 15px rgba(var(--theme-color-rgb), 0.5);
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    width: 50px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(var(--theme-color-rgb), 0.3);
-    box-shadow: 0 0 15px rgba(var(--theme-color-rgb), 0.5);
-  }
-  
-  .scan-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: var(--theme-color);
-    box-shadow: 0 0 10px var(--theme-color);
-    animation: scanEffect 3s linear infinite;
-  }
-}
-
-.access-level {
-  font-family: $terminal-font;
-  text-align: center;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  
-  .level {
-    font-weight: bold;
-    color: var(--theme-color);
-    text-shadow: 0 0 5px var(--theme-color);
-    font-size: 1.2rem;
-  }
-}
-
-.identity-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: $terminal-font;
-  
-  .detail-row {
-    display: flex;
-    margin-bottom: 10px;
-    
-    .label {
-      width: 150px;
-      color: rgba(var(--theme-color-rgb), 0.7);
-      font-size: 0.9rem;
-    }
-    
-    .value {
-      flex: 1;
-      font-weight: bold;
-      letter-spacing: 1px;
-      
-      &.status-active {
-        color: #33ff33;
-        text-shadow: 0 0 5px #33ff33;
-      }
-    }
-  }
-}
-
-.biometric-data {
-  padding: 15px;
-  background-color: rgba(var(--theme-color-rgb), 0.05);
-  border: 1px solid rgba(var(--theme-color-rgb), 0.2);
-  border-radius: 3px;
-  
-  h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-family: $terminal-font;
-    font-size: 1rem;
-    color: var(--theme-color);
-    letter-spacing: 1px;
-  }
-  
-  .data-visualization {
-    display: flex;
-    gap: 10px;
-    height: 60px;
-    align-items: flex-end;
-    
-    .data-bar {
-      flex: 1;
-      background: linear-gradient(to top, var(--theme-color), rgba(var(--theme-color-rgb), 0.3));
-      height: 20%;
-      animation: dataAnimation 4s ease-in-out infinite;
-      box-shadow: 0 0 5px var(--theme-color);
-      
-      &:nth-child(1) { animation-delay: 0s; }
-      &:nth-child(2) { animation-delay: 0.4s; }
-      &:nth-child(3) { animation-delay: 0.8s; }
-      &:nth-child(4) { animation-delay: 1.2s; }
-      &:nth-child(5) { animation-delay: 1.6s; }
-    }
-  }
-}
-
-.about-content {
-  h3 {
-    font-family: $terminal-font;
-    color: var(--theme-color);
-    margin-top: 0;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    border-bottom: 1px solid rgba(var(--theme-color-rgb), 0.3);
-    padding-bottom: 8px;
-  }
-  
-  p {
-    font-family: $terminal-font;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    text-align: justify;
-    font-size: 0.95rem;
-    color: var(--theme-text);
-    position: relative;
-    
-    &::before {
-      content: '>';
-      margin-right: 10px;
-      color: var(--theme-color);
-    }
-  }
-}
-
 .popup-footer {
   display: flex;
   align-items: center;
@@ -380,29 +248,48 @@
   }
 }
 
-@keyframes scanEffect {
-  from { top: 0; }
-  to { top: 100%; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@keyframes dataAnimation {
-  0% { height: 20%; }
-  50% { height: 90%; }
-  100% { height: 20%; }
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+// Animations for the wrapper element
+@keyframes wrapperEnter {
+  from { 
+    opacity: 0;
+    margin-top: 30px;
+  }
+  to { 
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes wrapperExit {
+  from { 
+    opacity: 1;
+    margin-top: 0;
+  }
+  to { 
+    opacity: 0;
+    margin-top: 30px;
+  }
 }
 
 // Media queries for responsiveness
 @media (max-width: 768px) {
-  .about-popup-content {
+  .skills-popup-content {
     width: 95%;
   }
-  
-  .identity-section {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .identity-details {
-    width: 100%;
+}
+
+@media (max-width: 480px) {
+  .popup-header h2 {
+    font-size: 1.1rem;
   }
 }

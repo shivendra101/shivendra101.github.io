@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import CommandHelp from "../components/CommandHelp/CommandHelp";
+import AboutPopup from "../components/AboutPopup/AboutPopup";
+import SkillsPopup from "../components/SkillsPopup/SkillsPopup";
 
 interface CommandEntry {
     command: string;
@@ -12,6 +14,7 @@ export const useTerminalContent = () => {
     ]);
     const [currentCommand, setCurrentCommand] = useState<string>("");
     const [showAboutPopup, setShowAboutPopup] = useState<boolean>(false);
+    const [showSkillsPopup, setShowSkillsPopup] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const terminalMainRef = useRef<HTMLDivElement>(null);
 
@@ -55,10 +58,12 @@ export const useTerminalContent = () => {
             return <CommandHelp />;
         } else if (cmd === "about") {
             // Show the About popup
-            setTimeout(() => setShowAboutPopup(true), 1000);
+            setTimeout(() => setShowAboutPopup(true), 100);
             return "Loading classified personnel file...";
         } else if (cmd === "skills") {
-            return "React, TypeScript, Node.js, CSS/SCSS, and more!";
+            // Show the Skills popup
+            setTimeout(() => setShowSkillsPopup(true), 1000);
+            return "Loading technical skills assessment...";
         } else if (cmd === "projects") {
             return "Check out my portfolio projects! More details coming soon.";
         } else if (cmd === "contact") {
@@ -85,6 +90,10 @@ export const useTerminalContent = () => {
         setShowAboutPopup(false);
     };
 
+    const closeSkillsPopup = () => {
+        setShowSkillsPopup(false);
+    };
+
     return {
         commandHistory,
         currentCommand,
@@ -94,6 +103,8 @@ export const useTerminalContent = () => {
         inputRef,
         terminalMainRef,
         showAboutPopup,
-        closeAboutPopup
+        closeAboutPopup,
+        showSkillsPopup,
+        closeSkillsPopup
     };
 };

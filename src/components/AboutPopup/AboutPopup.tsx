@@ -8,7 +8,6 @@ interface AboutPopupProps {
 }
 
 const AboutPopup: React.FC<AboutPopupProps> = ({ onClose }) => {
-  const { theme } = useTheme();
   const nodeRef = useRef(null);
 
   return (
@@ -26,7 +25,6 @@ const AboutPopup: React.FC<AboutPopupProps> = ({ onClose }) => {
               <div className="header-decoration left"></div>
               <h2>CLASSIFIED PERSONNEL FILE</h2>
               <div className="header-decoration right"></div>
-              <div className="drag-handle-indicator">DRAG TO REPOSITION</div>
             </div>
             
             <button className="close-button" onClick={onClose}>×</button>
